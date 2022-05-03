@@ -1,0 +1,27 @@
+﻿@model SalesTransactionApplication.Models.Product
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddOrEdit", "Product", FormMethod.Post, new {onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.ProductId)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Name, new { HtmlAttribute = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Rate, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Rate, new { HtmlAttribute = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.AvailableStock, new { @class = "control-label" })
+        @Html.EditorFor(model => model.AvailableStock, new { HtmlAttribute = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-info" />
+    </div>
+}

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/Site.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/jquery-ui.min.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+    <div class="container body-content">
+        <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+
+            
+
+            <ul class="nav menu">
+                <li><a href="@Url.Action("Dashboard","Home")"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>                
+                <li><a href="@Url.Action("Index","Product")"><em class="fa fa-bar-chart">&nbsp;</em> Product</a></li>
+                <li><a href="@Url.Action("Index","User")"><em class="fa fa-toggle-off">&nbsp;</em>Show</a></li>
+                <li><a href="@Url.Action("Login","Home")"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+
+            </ul>
+        </div>
+        @RenderBody()
+
+    </div>
+
+
+    <script src="~/js/jquery-1.11.1.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <script src="~/js/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/js/notify.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

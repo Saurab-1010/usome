@@ -1,0 +1,52 @@
+﻿@model SalesTransactionApplication.Models.UserDataViewModel
+@{
+    ViewBag.Title = "User List";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="canvas-wrapper">
+
+        <table id="AllUserDetail" class="display" style="width:100%">
+            <thead>
+                <tr>
+
+                    <th>PersonId</th>
+                    <th>UserName</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th> </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+</div>
+
+
+<link href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        var Popup, dataTable;
+        $(document).ready(function () {
+            dataTable = $("#AllUserDetail").DataTable({
+                "ajax": {
+                    "url": "/User/GetData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+
+                    { "data": "PersonId" },
+                    { "data": "UserName" },
+                    { "data": "FirstName" },
+                    { "data": "LastName" }
+                ]
+            });
+        });
+
+    </script>
+}
